@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet  } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+
+import HomeTab from './AppTabNavigator/HomeTab'
+import SearchTab from './AppTabNavigator/SearchTab'
+import AddMediaTab from './AppTabNavigator/AddMediaTab'
+import LikesTab from './AppTabNavigator/LikesTab'
+import ProfileTab from './AppTabNavigator/ProfileTab'
+
 import { Icon } from 'native-base'
+import { TabNavigator } from 'react-navigation'
 
 class MainScreen extends Component {
 
@@ -12,13 +20,29 @@ class MainScreen extends Component {
 
   render() {
     return (
-      <View style= {styles.container}>
-        <Text> MainScreen </Text>
-      </View>
+      <AppTabNavagator />
     );
   }
 }
 export default MainScreen;
+
+const AppTabNavagator =  TabNavigator({
+  HomeTab: {
+    screen: HomeTab
+  },
+  SearchTab: {
+    screen: SearchTab
+  },
+  AddMediaTab: {
+    screen: AddMediaTab
+  },
+  LikesTab: {
+    screen: LikesTab
+  },
+  ProfilesTab: {
+    screen: ProfileTab
+  }
+})
 
 const styles = StyleSheet.create({
   container:{
