@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 
 import HomeTab from './AppTabNavigator/HomeTab'
 import SearchTab from './AppTabNavigator/SearchTab'
@@ -41,6 +41,23 @@ const AppTabNavagator =  TabNavigator({
   },
   ProfilesTab: {
     screen: ProfileTab
+  }
+},{
+  animationEnabled:true,
+  swipeEnabled:true,
+  tabBarPosition:"bottom",
+  tabBarOptions: {
+    style:{
+      ...Platform.select({
+        android:{
+          backgroundColor:'white'
+        }
+      })
+    },
+    activeTintColor: '#000',
+    inactiveTintColor: '#d1cece',
+    showLabel:false,
+    showIcon:true
   }
 })
 
