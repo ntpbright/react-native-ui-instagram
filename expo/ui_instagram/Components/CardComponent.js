@@ -8,9 +8,9 @@ class CardComponent extends Component {
   render() {
     
     const images = {
-      "1": '../assests/feed_images/1.jpg',
-      "2": '../assests/feed_images/2.jpg',
-      "3": '../assests/feed_images/3.jpg'
+      "1": require('../assets/feed_images/1.jpg'),
+      "2": require('../assets/feed_images/2.jpg'),
+      "3": require('../assets/feed_images/3.jpg')
     }
 
     return (
@@ -25,7 +25,7 @@ class CardComponent extends Component {
           </Left>
         </CardItem>
         <CardItem>
-          <Image source={require('../assets/IMG_5189.jpg')} style={styles.image} />
+          <Image source={images[this.props.imageSource]} style={styles.image} />
         </CardItem>
         <CardItem style={{height:45}}>
           <Left>
@@ -41,7 +41,7 @@ class CardComponent extends Component {
           </Left>
         </CardItem>
         <CardItem style={{height:20}}>
-          <Text>101 likes</Text>
+          <Text>{this.props.likes} likes</Text>
         </CardItem>
         <CardItem>
           <Body>
