@@ -12,7 +12,6 @@ class CardComponent extends Component {
       "2": require('../assets/feed_images/2.jpg'),
       "3": require('../assets/feed_images/3.jpg')
     }
-
     return (
       <Card>
         <CardItem>
