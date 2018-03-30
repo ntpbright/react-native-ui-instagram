@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { Icon, Container, Content, Header, Left, Body, Right, Button, Title} from 'native-base'
 
 import EntypoIcon from 'react-native-vector-icons/Entypo'
+import CardComponent from '../CardComponent';
 
 var images = [
   require('../../assets/story_thumbnails/1.png'),
@@ -44,7 +45,8 @@ class ProfileTab extends Component {
 
     return images.map((image,index)=>{
       return (
-        <View key={index}>
+        <View key={index} style={[ { width:(width)/3 }, {height:(width)/3 }, { marginBottom: 2}, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0}]}>
+          <Image style={{ flex: 1, width: undefined, height: undefined }} source={image}/>
         </View>
       )
     })
@@ -55,6 +57,15 @@ class ProfileTab extends Component {
       return (
         <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
           {this.renderSectionOne()}
+        </View>
+      )
+    }
+    else if (this.state.activeIndex == 1){
+      return(
+        <View>
+          <CardComponent imageSource="1" likes="100" />
+          <CardComponent imageSource="2" likes="400" />
+          <CardComponent imageSource="3" likes="800" />
         </View>
       )
     }
@@ -89,7 +100,7 @@ class ProfileTab extends Component {
                     <Text style={{ fontSize: 10, color: 'gray'}}>following</Text>
                   </View>
                 </View>
-                <View style={{ flexDirection: 'row', paddingTop: 10}}>
+                <View style={{ flexDirection: 'row', paddingTop: 10, paddingRight: 10}}>
                   <Button bordered dark style={{ flex: 3, marginLeft: 10, justifyContent: 'center', height: 30}}>
                     <Text>Edit Profile</Text>
                   </Button>
