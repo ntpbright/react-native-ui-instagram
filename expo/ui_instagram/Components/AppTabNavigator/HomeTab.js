@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
-import { Container, Content, Icon, Thumbnail } from "native-base";
+import { Container, Content, Icon, Thumbnail, Header, Left, Right, Body, Title } from "native-base";
 import CardComponent from '../CardComponent';
 
 class HomeTab extends Component {
@@ -9,12 +9,17 @@ class HomeTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor}) => (
       <Icon name="ios-home" style={{ color: tintColor }}/>
-    )
+    ),
   }
 
   render() {
     return (
       <Container>
+        <Header style={ styles.header }>
+          <Left style= {{ }} ><Icon name="ios-camera-outline" style={{paddingLeft: 10}}></Icon></Left>
+          <Body><Title>Instagram</Title></Body>
+          <Right><Icon name="ios-send-outline" style={{paddingRight: 10}}></Icon></Right>
+        </Header>
         <Content>
           <View style={ styles.story_container }>
             <View style={ styles.story_header_btn }>
@@ -80,5 +85,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     borderColor: 'pink',
     borderWidth: 2,
+  },
+  header:{
+
   }
 })
